@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from "react"
-import PropTypes from 'prop-types';
 import { Form, Input, Checkbox, Button } from "antd"
-
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { signupAction } from '../reducers/user';
 // useCallback -> props로 넘어가는 state는 useCallback에 등록하여 넘겨주어야한다.
 //                그래야 자식컴포넌트에 대한 불필요한 리 랜더링을 방지할 수 있다.
 //                현재 프로젝트에서는 antd 컴포넌트 들에 props로 넘기는 event리스너 들에 대한 useCallback이 필요하다.
@@ -38,6 +39,8 @@ const Signup = () => {
   const [nick, onChangeNick] = useInput('');
   const [password, onChangePassword] = useInput('');
 
+  const dispatch = useDispatch();
+
   const onSubmit = useCallback(e => {
     e.preventDefault()
     if (password !== passwordCheck) {
@@ -46,6 +49,13 @@ const Signup = () => {
     if (!term) {
       return setTermError(true)
     }
+
+    dispatch(signupAction({
+      id,
+      password,
+      nick
+    }));
+
   }, [password, passwordCheck, term]);
 
   const onChangePasswordChk = useCallback(e => {

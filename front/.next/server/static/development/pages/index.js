@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -214,23 +214,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "antd");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "C:\\react\\react-nodebird\\front\\components\\PostForm.js";
 
 
-var dummy = {
-  isLoggedIn: true,
-  imagePaths: [],
-  mainPosts: [{
-    User: {
-      id: 1,
-      nickname: 'Juno'
-    },
-    content: 'first content',
-    img: 'https://t1.daumcdn.net/cfile/tistory/99F361465BA3102C2B'
-  }]
-};
+
 
 var PostForm = function PostForm() {
+  var _useSelector = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useSelector"])(function (state) {
+    return state.post;
+  }),
+      imagePaths = _useSelector.imagePaths;
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_1__["Form"], {
     encType: "multipart/form-data",
     style: {
@@ -238,7 +234,7 @@ var PostForm = function PostForm() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 9
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_1__["Input"].TextArea, {
@@ -246,13 +242,13 @@ var PostForm = function PostForm() {
     placeholder: "\uC5B4\uB5A4 \uC2E0\uAE30\uD55C \uC77C\uC774 \uC788\uC5C8\uB098\uC694?",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 10
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 11
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -261,13 +257,13 @@ var PostForm = function PostForm() {
     hidden: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 12
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 13
     },
     __self: this
   }, "\uC774\uBBF8\uC9C0 \uC5C5\uB85C\uB4DC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
@@ -278,16 +274,16 @@ var PostForm = function PostForm() {
     htmlType: "submit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 14
     },
     __self: this
   }, "\uC9F9\uC9F9")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 16
     },
     __self: this
-  }, dummy.imagePaths.map(function (v, i) {
+  }, imagePaths.map(function (v, i) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: v,
       style: {
@@ -295,7 +291,7 @@ var PostForm = function PostForm() {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 19
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -306,19 +302,19 @@ var PostForm = function PostForm() {
       alt: v,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 20
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 21
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 22
       },
       __self: this
     }, "\uC81C\uAC70")));
@@ -342,43 +338,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_PostForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/PostForm */ "./components/PostForm.js");
 /* harmony import */ var _components_PostCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PostCard */ "./components/PostCard.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "C:\\react\\react-nodebird\\front\\pages\\index.js";
 
 
 
-var dummy = {
-  isLoggedIn: true,
-  imagePaths: [],
-  mainPosts: [{
-    User: {
-      id: 1,
-      nickname: 'Juno'
-    },
-    content: 'first content',
-    img: 'https://t1.daumcdn.net/cfile/tistory/99F361465BA3102C2B'
-  }]
-};
+ // react-redux 7.1 버전 이상은 Hooks에서 redux를 사용 할 수 있도록 지원한다.
+// useSelector -> Hooks에서 redux state를 가져다 쓸 수 있도록 지원 ( 기존 Hooks에서의 const [a, setA ] = useState('')  a 생각  )
+// useDispatch -> Hooks에서 action을 dispatch 할 수 있도록 지원 ( 기존 Hooks에서의 const [a, setA ] = useState('')  setA 생각 )
+// react-redux connect
+// 기존 클래스 컴포넌트 일때는 connect 컴포넌트를 자주 사용했다.
+// 하이오더 함수를 사용하여 mapStateToProps, mapDispatchToProps 함수를 따로 제작하여 component의 props로 dispatch와 현재 state를 받아온다.
+// react-redux의 connect 함수를 사용한 방식 (기존 클래스컴포넌트나 react-redux 7.1버전 이전에서 많이 사용)
+// react-redux의 useSelector, useDispatch 함수를 사용한 방식 (Hooks 컴포넌트 react-redux 7.1버전 이상에서 새로 사용 갠취)
 
 var Home = function Home() {
+  // Hooks에서는 성능이슈 때문에 useSelector함수를 잘게 잘게 쪼갠다.
+  // 이유는 useSelector로 가져온 값이 변경되었을때 리랜더링이 일어나기 때문,
+  // 구조 분해를 통해 한방에 가져와도 상관은 없다만 성능 이슈를 위하여
+  // 최대한 잘게 작게 쪼개서 useSelector를 여러번 호출하면 쓸데없는 리랜더링을 줄일 수 있다.
+  var _useSelector = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
+    return state.user;
+  }),
+      isLoggedIn = _useSelector.isLoggedIn;
+
+  var _useSelector2 = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
+    return state.post;
+  }),
+      mainPosts = _useSelector2.mainPosts;
+
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {}, []); // useEffect의 두번째 인자에 아무것도 넣지 않으면 componentDidMount와 동일,
+  // componentDidMount는 컴포넌트가 첫 랜더링 후 실행됨
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 31
     },
     __self: this
-  }, dummy.isLoggedIn && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PostForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, isLoggedIn && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PostForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 32
     },
     __self: this
-  }), dummy.mainPosts.map(function (c) {
+  }), mainPosts.map(function (c) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PostCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
       key: c,
       post: c,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 35
       },
       __self: this
     });
@@ -389,7 +401,7 @@ var Home = function Home() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -431,6 +443,17 @@ module.exports = require("prop-types");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
 
 /***/ })
 
