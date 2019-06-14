@@ -38,3 +38,9 @@
 - takeEvery, takeLatest
 - fork, call Saga 총정리
 - Saga 패턴
+- eslint-config-airbnb및 코드정리
+- Redux state와 action 구조 잡기
+- 로그인 Redux 사이클
+- 회원가입 Redux 사이클
+- 게시물 작성 Redux 사이클
+- next Router로 페이지 이동

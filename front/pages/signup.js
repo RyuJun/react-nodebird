@@ -1,8 +1,19 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import { Form, Input, Checkbox, Button } from "antd"
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { signupAction } from '../reducers/user';
+import { useDispatch, useSelector } from 'react-redux';
+import Router from 'next/router';
+import { SIGN_UP_REQUEST } from "../reducers/user";
+
+const TextInput = ({ value }) => (
+  <div>{value}</div>
+);
+
+TextInput.propTypes = {
+  value: PropTypes.string,
+};
+
+
 // useCallback -> props로 넘어가는 state는 useCallback에 등록하여 넘겨주어야한다.
 //                그래야 자식컴포넌트에 대한 불필요한 리 랜더링을 방지할 수 있다.
 //                현재 프로젝트에서는 antd 컴포넌트 들에 props로 넘기는 event리스너 들에 대한 useCallback이 필요하다.
@@ -30,33 +41,42 @@ export const useInput = (initValue = null) => {
 };
 
 const Signup = () => {
-  const [passwordCheck, setPasswordCheck] = useState("")
-  const [term, setTerm] = useState(false)
-  const [passwordError, setPasswordError] = useState(false)
-  const [termError, setTermError] = useState(false)
+  const [passwordCheck, setPasswordCheck] = useState('');
+  const [term, setTerm] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [termError, setTermError] = useState(false);
 
   const [id, onChangeId] = useInput('');
   const [nick, onChangeNick] = useInput('');
   const [password, onChangePassword] = useInput('');
-
   const dispatch = useDispatch();
+  const { isSigningUp, me } = useSelector(state => state.user);
 
-  const onSubmit = useCallback(e => {
-    e.preventDefault()
+  useEffect(() => {
+    if (me) {
+      alert('로그인했으니 메인페이지로 이동합니다.');
+      Router.push('/');
+    }
+  }, [me && me.id]);
+
+  const onSubmit = useCallback((e) => {
+    e.preventDefault();
     if (password !== passwordCheck) {
-      return setPasswordError(true)
+      return setPasswordError(true);
     }
     if (!term) {
-      return setTermError(true)
+      return setTermError(true);
     }
-
-    dispatch(signupAction({
-      id,
-      password,
-      nick
-    }));
-
+    return dispatch({
+      type: SIGN_UP_REQUEST,
+      data: {
+        id,
+        password,
+        nick,
+      },
+    });
   }, [password, passwordCheck, term]);
+
 
   const onChangePasswordChk = useCallback(e => {
     setPasswordError(e.target.value !== password)
@@ -111,7 +131,7 @@ const Signup = () => {
           {termError && <div style={{ color: "red" }}>약관에 동의하셔야 합니다.</div>}
         </div>
         <div style={{ marginTop: 10 }}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={isSigningUp}>
             가입하기
             </Button>
         </div>
