@@ -18,32 +18,31 @@ db.sequelize.sync();
 passportConfig();
 
 app.use(morgan('dev'));
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: true, // 모든 요청을 허락함 , 'http://localhost:3000' -> 해당 주소만 허락함
-  credentials: true // front와 backend 서버 둘다 설정해주어야 쿠키 공유 가능
-}));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(expressSession({
-  resave: false, // 매번 세션 강제 저장
-  saveUninitialized: false, // 빈값도 저장
+  resave: false,
+  saveUninitialized: false,
   secret: process.env.COOKIE_SECRET,
   cookie: {
-    httpOnly: true, // javascript로 접근 불가
-    secure: false, // https를 사용할 때 true
+    httpOnly: true,
+    secure: false, // https를 쓸 때 true
   },
-  name: 'react-nodebird'
+  name: 'rnbck',
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+// API는 다른 서비스가 내 서비스의 기능을 실행할 수 있게 열어둔 창구
 app.use('/api/user', userAPIRouter);
 app.use('/api/post', postAPIRouter);
 app.use('/api/posts', postsAPIRouter);
 
-
-
 app.listen(9023, () => {
   console.log('server is running on http://localhost:9023');
-})
+});

@@ -14,7 +14,6 @@ import {
   SIGN_UP_REQUEST,
   SIGN_UP_SUCCESS,
 } from '../reducers/user';
-axios.defaults.baseURL = 'http://localhost:3065/api';
 
 // all  -> redux-saga에서 eventListener와 비슷하게 등록된 함수들을, 모두 묶어줄 때 사용한다.
 // take -> redux-saga에서 generator.next()와 마찬가지로 yield 로인해 중단된 함수를 Action이 들어왔을 때 다시 재개시킨다.

@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _reducers_post__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../reducers/post */ "./reducers/post.js");
 
-var _jsxFileName = "c:\\react\\react-nodebird\\front\\components\\PostCard.js";
+var _jsxFileName = "C:\\react\\react-nodebird\\front\\components\\PostCard.js";
 
 
 
@@ -345,7 +345,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _reducers_post__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../reducers/post */ "./reducers/post.js");
 
-var _jsxFileName = "c:\\react\\react-nodebird\\front\\components\\PostForm.js";
+var _jsxFileName = "C:\\react\\react-nodebird\\front\\components\\PostForm.js";
 
 
 
@@ -371,41 +371,46 @@ var PostForm = function PostForm() {
   }, [postAdded === true]);
   var onSubmitForm = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (e) {
     e.preventDefault();
+
+    if (!text || !text.trim()) {
+      return alert('게시글을 작성하세요.');
+    }
+
     dispatch({
       type: _reducers_post__WEBPACK_IMPORTED_MODULE_4__["ADD_POST_REQUEST"],
       data: {
-        text: text
+        content: text.trim()
       }
     });
-  }, []);
+  }, [text]);
   var onChangeText = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (e) {
     setText(e.target.value);
   }, []);
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Form"], {
-    encType: "multipart/form-data",
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Form"], {
     style: {
       margin: '10px 0 20px'
     },
+    encType: "multipart/form-data",
     onSubmit: onSubmitForm,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 33
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Input"].TextArea, {
     maxLength: 140,
     placeholder: "\uC5B4\uB5A4 \uC2E0\uAE30\uD55C \uC77C\uC774 \uC788\uC5C8\uB098\uC694?",
-    onChange: onChangeText,
     value: text,
+    onChange: onChangeText,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 34
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 35
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -414,18 +419,16 @@ var PostForm = function PostForm() {
     hidden: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 36
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-    key: 'upload',
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 37
     },
     __self: this
   }, "\uC774\uBBF8\uC9C0 \uC5C5\uB85C\uB4DC"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-    key: 'submit',
     type: "primary",
     style: {
       float: 'right'
@@ -434,16 +437,16 @@ var PostForm = function PostForm() {
     loading: isAddingPost,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 38
     },
     __self: this
   }, "\uC9F9\uC9F9")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 40
     },
     __self: this
-  }, imagePaths.map(function (v, i) {
+  }, imagePaths.map(function (v) {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       key: v,
       style: {
@@ -451,7 +454,7 @@ var PostForm = function PostForm() {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 42
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -462,23 +465,23 @@ var PostForm = function PostForm() {
       alt: v,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 43
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 44
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Button"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 45
       },
       __self: this
     }, "\uC81C\uAC70")));
-  }))));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PostForm);
@@ -844,7 +847,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_PostCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PostCard */ "./components/PostCard.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "c:\\react\\react-nodebird\\front\\pages\\index.js";
+/* harmony import */ var _reducers_post__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../reducers/post */ "./reducers/post.js");
+var _jsxFileName = "C:\\react\\react-nodebird\\front\\pages\\index.js";
+
 
 
 
@@ -865,7 +870,7 @@ var Home = function Home() {
   var _useSelector = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
     return state.user;
   }),
-      isLoggedIn = _useSelector.isLoggedIn;
+      me = _useSelector.me;
 
   var _useSelector2 = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
     return state.post;
@@ -873,19 +878,23 @@ var Home = function Home() {
       mainPosts = _useSelector2.mainPosts;
 
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {}, []); // useEffect의 두번째 인자에 아무것도 넣지 않으면 componentDidMount와 동일,
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    dispatch({
+      type: _reducers_post__WEBPACK_IMPORTED_MODULE_4__["LOAD_MAIN_POSTS_REQUEST"]
+    });
+  }, []); // useEffect의 두번째 인자에 아무것도 넣지 않으면 componentDidMount와 동일,
   // componentDidMount는 컴포넌트가 첫 랜더링 후 실행됨
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 35
     },
     __self: this
-  }, isLoggedIn && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PostForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PostForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 36
     },
     __self: this
   }), mainPosts.map(function (c) {
@@ -894,7 +903,7 @@ var Home = function Home() {
       post: c,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 39
       },
       __self: this
     });
@@ -980,15 +989,6 @@ var initialState = {
   commentAdded: false // 코멘트 업로드 성공
 
 };
-var dummyPost = {
-  id: 2,
-  User: {
-    id: 1,
-    nickname: 'juno'
-  },
-  content: '나는 더미입니다.',
-  Comments: []
-};
 var dummyComment = {
   id: 1,
   User: {
@@ -1050,7 +1050,7 @@ var REMOVE_POST_FAILURE = 'REMOVE_POST_FAILURE';
       {
         return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state, {
           isAddingPost: false,
-          mainPosts: [dummyPost].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(state.mainPosts)),
+          mainPosts: [action.data].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(state.mainPosts)),
           postAdded: true
         });
       }
@@ -1061,6 +1061,25 @@ var REMOVE_POST_FAILURE = 'REMOVE_POST_FAILURE';
           isAddingPost: false,
           addPostErrorReason: action.error
         });
+      }
+
+    case LOAD_MAIN_POSTS_REQUEST:
+      {
+        return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state, {
+          mainPosts: []
+        });
+      }
+
+    case LOAD_MAIN_POSTS_SUCCESS:
+      {
+        return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state, {
+          mainPosts: action.data
+        });
+      }
+
+    case LOAD_MAIN_POSTS_FAILURE:
+      {
+        return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state);
       }
 
     case ADD_COMMENT_REQUEST:
@@ -1116,7 +1135,7 @@ var REMOVE_POST_FAILURE = 'REMOVE_POST_FAILURE';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\react\react-nodebird\front\pages\index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! C:\react\react-nodebird\front\pages\index.js */"./pages/index.js");
 
 
 /***/ }),

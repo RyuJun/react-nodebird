@@ -50,7 +50,7 @@ const Signup = () => {
   const [nick, onChangeNick] = useInput('');
   const [password, onChangePassword] = useInput('');
   const dispatch = useDispatch();
-  const { isSigningUp, me } = useSelector(state => state.user);
+  const { isSigningUp, isSignedUp, me } = useSelector(state => state.user);
 
   useEffect(() => {
     if (me) {
@@ -59,6 +59,13 @@ const Signup = () => {
     }
   }, [me && me.id]);
 
+  useEffect(() => {
+    if (isSignedUp) {
+      alert('가입성공! 로그인해주세요');
+      Router.push('/');
+    }
+
+  }, [isSignedUp]);
   const onSubmit = useCallback((e) => {
     e.preventDefault();
     if (password !== passwordCheck) {

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PostForm from '../components/PostForm';
 import PostCard from '../components/PostCard';
 import { useSelector, useDispatch } from 'react-redux';
+import { LOAD_MAIN_POSTS_REQUEST } from "../reducers/post";
 
 // react-redux 7.1 버전 이상은 Hooks에서 redux를 사용 할 수 있도록 지원한다.
 // useSelector -> Hooks에서 redux state를 가져다 쓸 수 있도록 지원 ( 기존 Hooks에서의 const [a, setA ] = useState('')  a 생각  )
@@ -19,17 +20,20 @@ const Home = () => {
   // 이유는 useSelector로 가져온 값이 변경되었을때 리랜더링이 일어나기 때문,
   // 구조 분해를 통해 한방에 가져와도 상관은 없다만 성능 이슈를 위하여
   // 최대한 잘게 작게 쪼개서 useSelector를 여러번 호출하면 쓸데없는 리랜더링을 줄일 수 있다.
-  const { isLoggedIn } = useSelector(state => state.user);
+  const { me } = useSelector(state => state.user);
   const { mainPosts } = useSelector(state => state.post);
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch({
+      type: LOAD_MAIN_POSTS_REQUEST,
+    })
   }, []);
   // useEffect의 두번째 인자에 아무것도 넣지 않으면 componentDidMount와 동일,
   // componentDidMount는 컴포넌트가 첫 랜더링 후 실행됨
   return (
     <>
       <div>
-        {isLoggedIn && <PostForm />}
+        {me && <PostForm />}
         {mainPosts.map((c) => {
           return (
             <PostCard key={c} post={c} />
