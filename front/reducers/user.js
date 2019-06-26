@@ -9,7 +9,10 @@ export const initialState = {
   followingList: [], // 팔로잉 리스트
   followerList: [], // 팔로워 리스트
   userInfo: null, // 남의 정보
+  isEditingNickname: false, // 이름 변경 중
+  editNicknameErrorReason: '', // 이름 변경 실패 사유
 };
+
 
 export const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
